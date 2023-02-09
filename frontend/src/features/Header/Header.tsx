@@ -1,6 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import MainPage from '../Main/MainPage';
 import './Header.scss';
 
 function Header(): JSX.Element {
@@ -13,21 +13,30 @@ function Header(): JSX.Element {
           </NavLink>
         </div>
         <ul className="nav__list">
-          <li>
-            <NavLink className="nav__list-item" to="/authorization">
-              Войти
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav__list-item" to="/registration">
-              Регистрация
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav__list-item" to="/logout">
-              Выйти
-            </NavLink>
-          </li>
+          {!user && (
+            <>
+              <li>
+                <NavLink className="nav__list-item" to="/authorization">
+                  Войти
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="nav__list-item" to="/registration">
+                  Регистрация
+                </NavLink>
+              </li>
+            </>
+          )}
+          {user && (
+            <>
+              <li>Привет, {user.name}!</li>
+              <li>
+                <NavLink className="nav__list-item" to="/logout">
+                  Выйти
+                </NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
       <Outlet />
