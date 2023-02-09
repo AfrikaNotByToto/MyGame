@@ -1,10 +1,26 @@
-import React from 'react';
 import MainPage from '../features/Main/MainPage';
 import { Route, Routes } from 'react-router-dom';
 import Header from '../features/Header/Header';
-import './App.css';
 
-function App() {
+import React, { useEffect } from 'react';
+
+import './App.css';
+import { useDispatch } from 'react-redux';
+import * as api from './api';
+// import { RootState } from '../store';
+
+function App(): JSX.Element {
+  // const { userState } = useSelector((store: RootState) => store);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    api.checkUser().then((data) =>
+      dispatch({
+        type: 'CHECK_USER',
+        payload: data,
+      })
+    );
+  }, []);
   return (
     <div className="app__container">
       <Routes>
