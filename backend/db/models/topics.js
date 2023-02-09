@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Topics',
-    },
+      modelName: 'Topic',
+    }
   );
   return Topic;
 };

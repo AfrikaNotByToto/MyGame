@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     const user = await User.findOne({ where: { id: req.session.userId } });
     res.json(user);
   } catch ({ message }) {
-    req.status(500).json(message);
+    res.status(500).json(message);
   }
 });
 
