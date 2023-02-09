@@ -2,8 +2,11 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import './Header.scss';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 function Header(): JSX.Element {
+  const { user } = useSelector((store: RootState) => store.userState);
   return (
     <>
       <div className="nav__container">
@@ -29,7 +32,7 @@ function Header(): JSX.Element {
           )}
           {user && (
             <>
-              <li>Привет, {user.name}!</li>
+              <li>Привет, {user.name}</li>
               <li>
                 <NavLink className="nav__list-item" to="/logout">
                   Выйти

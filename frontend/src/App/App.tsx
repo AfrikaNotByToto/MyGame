@@ -1,12 +1,17 @@
-import MainPage from '../features/Main/MainPage';
-import { Route, Routes } from 'react-router-dom';
-import Header from '../features/Header/Header';
-
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useEffect } from 'react';
 
-import './App.css';
+import './App.scss';
 import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 import * as api from './api';
+
+import MainPage from '../features/Main/MainPage';
+
+import Header from '../features/Header/Header';
+import Registration from '../features/auth/Registration';
+import Login from '../features/auth/Authorization';
+
 // import { RootState } from '../store';
 
 function App(): JSX.Element {
@@ -27,7 +32,7 @@ function App(): JSX.Element {
         <Route path="/" element={<Header />}>
           <Route index element={<MainPage />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="/authorization" element={<Authorization />} />
+          <Route path="/authorization" element={<Login />} />
         </Route>
       </Routes>
     </div>
