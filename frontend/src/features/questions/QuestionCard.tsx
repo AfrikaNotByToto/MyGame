@@ -5,7 +5,16 @@ export default function QuestionCard({ question }): JSX.Element {
 
   const pushAnswer = async (e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:4000/??????', )
+    const res = await fetch(`http://localhost:4000/question/${}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        answer
+      }),
+    });
+    const data = await res.json();
   };
   return (
     <div className="form_question">
