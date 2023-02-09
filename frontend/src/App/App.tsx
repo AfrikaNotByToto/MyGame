@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+
 import React, { useEffect } from 'react';
 
 import './App.scss';
@@ -26,6 +27,23 @@ function App(): JSX.Element {
       })
     );
   }, []);
+  useEffect(() => {
+    api.loadTopics().then((data) =>
+      dispatch({
+        type: 'INIT_TOPICS',
+        payload: data,
+      })
+    );
+  }, []);
+  useEffect(() => {
+    api.loadQuestions().then((data) =>
+      dispatch({
+        type: 'INIT_QS',
+        payload: data,
+      })
+    );
+  }, []);
+
   return (
     <div className="app__container">
       <Routes>

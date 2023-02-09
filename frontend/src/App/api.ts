@@ -1,4 +1,6 @@
 import { User } from '../features/auth/Types/types';
+import { Topic } from '../features/questions/Types/Types';
+import { Question } from '../features/questions2/types/Types';
 
 export const registr = async (newUser: User): Promise<User> => {
   const res = await fetch('http://localhost:4000/api/auth/sign-up', {
@@ -6,6 +8,8 @@ export const registr = async (newUser: User): Promise<User> => {
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include',
+
     body: JSON.stringify({
       name: newUser.name,
       email: newUser.email,
@@ -21,6 +25,7 @@ export const authorization = async (newUser: User): Promise<User> => {
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include',
     body: JSON.stringify({
       email: newUser.email,
       password: newUser.password,
@@ -31,5 +36,15 @@ export const authorization = async (newUser: User): Promise<User> => {
 
 export const checkUser = async (): Promise<User> => {
   const res = await fetch('http://localhost:4000/api/users');
+  return res.json();
+};
+
+export const loadTopics = async (): Promise<Topic[]> => {
+  const res = await fetch('http://localhost:4000/api/game');
+  return res.json();
+};
+
+export const loadQuestions = async (): Promise<Question[]> => {
+  const res = await fetch('http://localhost:4000/api/game/questions');
   return res.json();
 };

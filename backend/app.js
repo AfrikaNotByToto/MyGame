@@ -15,7 +15,7 @@ config(app);
 
 app.use('/api/users', apiUsersRoute);
 app.use('/api/auth', apiAuthRoute);
-app.use('/', apiMainRoute);
+app.use('/api/game', apiMainRoute);
 
 const start = async () => {
   try {
