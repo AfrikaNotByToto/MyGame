@@ -1,3 +1,7 @@
+import MainPage from '../features/Main/MainPage';
+import { Route, Routes } from 'react-router-dom';
+import Header from '../features/Header/Header';
+
 import React, { useEffect } from 'react';
 
 import './App.css';
@@ -18,8 +22,14 @@ function App(): JSX.Element {
     );
   }, []);
   return (
-    <div>
-      <h1>привет</h1>
+    <div className="app__container">
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<MainPage />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/authorization" element={<Authorization />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

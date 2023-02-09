@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,300;0,400;0,600;1,500&display=swap');
+
+body {
+  font-family: 'Sofia Sans', sans-serif;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  background: url(https://skazki-na-noch.ru/wp-content/themes/skazki/voini/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.app {
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 25px;
+    background-color: rgba(255, 255, 255, 0.6);
+    min-width: 1000px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+}
