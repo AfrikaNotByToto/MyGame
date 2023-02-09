@@ -4,11 +4,16 @@ require('dotenv').config();
 const express = require('express');
 const db = require('./db/models');
 const config = require('./config/config');
+const apiUsersRoute = require('./routes/users.routes');
+const apiAuthRoute = require('./routes/auth.routes');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 config(app);
+
+app.use('/api/users', apiUsersRoute);
+app.use('/api/auth', apiAuthRoute);
 
 const start = async () => {
   try {
