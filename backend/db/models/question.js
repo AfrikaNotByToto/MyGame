@@ -8,7 +8,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Question.init(
     {
-      topic_id: DataTypes.INTEGER,
+      topic_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Topics',
+          key: 'id',
+        },
+      },
       question: DataTypes.TEXT,
       answer: DataTypes.TEXT,
       price: DataTypes.INTEGER,

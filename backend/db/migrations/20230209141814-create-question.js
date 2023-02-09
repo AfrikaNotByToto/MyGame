@@ -9,6 +9,11 @@ module.exports = {
       },
       topic_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Topics',
+          key: 'id',
+        },
       },
       question: {
         type: Sequelize.TEXT,
