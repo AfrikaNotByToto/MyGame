@@ -1,3 +1,7 @@
+
+
+import QuestionsList from '../questions/QuestionsList';
+
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
 import './MainPage.scss';
@@ -7,6 +11,10 @@ function MainPage(): JSX.Element {
 
   return (
     <div className="main__container">
+
+      <div>MyGame</div>
+      <QuestionsList />
+
       {modal && <div className="main__topic">Modal</div>}
       <div onClick={() => setModal((prev) => !prev)} className="main__quest">
         10
