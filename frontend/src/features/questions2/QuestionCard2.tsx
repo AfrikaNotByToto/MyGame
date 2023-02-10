@@ -9,6 +9,7 @@ import './QuestionCard2.scss';
 export default function QuestionCard2({ question }:{ question:Question }): JSX.Element {
   const [modal, setModal] = useState(false);
     const [answer, setAnswer] = useState('');
+    const [classs, setClass] = useState(true);
     const answeR = `Правильный ответ: ${question.answer}`;
     // const right = 'красавчик';
     const handleclick = (e):void => {
@@ -25,10 +26,15 @@ export default function QuestionCard2({ question }:{ question:Question }): JSX.E
       }
     };
 
+    function handleclickClass() {
+      setModal((prev) => !prev);
+      setClass((prev) => !prev);
+    }
+
   return (
 
-    <form onSubmit={handleclick}>
-    <div onClick={() => setModal((prev) => !prev)} className="main__quest">{question.price}</div>
+    <form className="form_card" onSubmit={handleclick}>
+    <div onClick={handleclickClass} className={classs ? 'main__quest' : 'main__quest disable'}>{question.price}</div>
     { modal && (
 <div className="main__modal"><div className="modal__container">{question.question}  <input
   className="answer_input"
