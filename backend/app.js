@@ -6,7 +6,7 @@ const db = require('./db/models');
 const config = require('./config/config');
 const apiUsersRoute = require('./routes/users.routes');
 const apiAuthRoute = require('./routes/auth.routes');
-const apiMainRoute = require('./routes/main.routes');
+// const apiMainRoute = require('./routes/main.routes');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -15,7 +15,7 @@ config(app);
 
 app.use('/api/users', apiUsersRoute);
 app.use('/api/auth', apiAuthRoute);
-app.use('/', apiMainRoute);
+// app.use('/', apiMainRoute);
 
 const start = async () => {
   try {
