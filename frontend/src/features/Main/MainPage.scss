@@ -10,6 +10,7 @@
   &__topic {
     width: 19%;
     margin-bottom: 1em;
+    margin-top: -1em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,11 +24,11 @@
     text-align: center;
     height: 150px;
     font-weight: 500;
-    font-size: 3em;
+    font-size: 1.5em;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   }
   &__quest {
-    width: 19%;
+    width: 100%;
     margin-bottom: 1em;
     display: flex;
     justify-content: center;
@@ -117,4 +118,12 @@ button:hover {
   border: 1px solid #a89a89;
   background: transparent;
   box-sizing: border-box;
+}
+.form_card {
+  width: 19%;
+}
+.disable {
+  pointer-events: none;
+  color: #83715b;
+  background-color: rgb(195 64 20 / 70%);
 }
