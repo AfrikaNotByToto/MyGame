@@ -27,7 +27,7 @@ export default function QuestionCard2({ question }:{ question:Question }): JSX.E
 
   return (
 
-    <form onSubmit={handleclick}>
+    <form className='form_card' onSubmit={handleclick}>
     <div onClick={() => setModal((prev) => !prev)} className="main__quest">{question.price}</div>
     { modal && (
 <div className="main__modal"><div className="modal__container">{question.question}  <input
