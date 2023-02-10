@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import { useSelector } from 'react-redux';
@@ -14,13 +13,14 @@ export default function QuestionsList(): JSX.Element {
     <div className="questions_list_div">
       <div className="questions_list_div2">
         {topics.map((topic) => (
-          <><QuestionCard key={topic.id} topic={topic} />
-          <div className="questions_list_div4">
-            {questions.map((question) => topic.id === question.topic_id(
-              <QuestionCard2 key={question.id} question={question} />
+          <><QuestionCard key={topic.id} topic={topic} /><div className="questions_list_div4">
+
+               {questions.map((elem) => (
+               elem.topic_id === topic.id && <QuestionCard2 key={elem.id} question={elem} />
             ))}
-          </div>
+                                                         </div>
           </>
+
         ))}
       </div>
 
