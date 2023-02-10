@@ -1,6 +1,5 @@
-
 const router = require('express').Router();
-const { Question, Topic } = require('../db/models');
+const { Question, Topic, User } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
@@ -22,22 +21,15 @@ router.get('/questions', async (req, res) => {
   }
 });
 
-// router.post('/question/:id', async (req, res) => {
-//   try {
-//     const { answer } = req.body;
-//     const { id } = req.params;
-//     const question = await Question.findOne({ where: { id } });
-
-//     if (answer === question.answer) {
-//       res.json({ message: 'ответ правильный' });
-//     } else {
-//       res.json({message: 'ответ неправильный', question.answer })
-//     }
-//   } catch ({ message }) {
-//     res.status(500).json(message);
-//   }
-// });
-
+router.put('/', async (req, res) => {
+  try {
+    const { points } = req.body;
+    const user = User.findOne({ where: { id: req.session.userId } });
+    user.points = points;
+    res.json(user);
+  } catch ({ message }) {
+    res.status(500).json(message);
+  }
+});
 
 module.exports = router;
-
