@@ -7,6 +7,7 @@ import { RootState } from '../../store';
 
 function Header(): JSX.Element {
   const { user } = useSelector((store: RootState) => store.userState);
+  console.log(user);
   return (
     <>
       <div className="nav__container">
@@ -16,7 +17,16 @@ function Header(): JSX.Element {
           </NavLink>
         </div>
         <ul className="nav__list">
-          {!user && (
+          {'name' in user ? (
+            <>
+              <li>Привет, {user.name}</li>
+              <li>
+                <NavLink className="nav__list-item" to="/logout">
+                  Выйти
+                </NavLink>
+              </li>
+            </>
+          ) : (
             <>
               <li>
                 <NavLink className="nav__list-item" to="/authorization">
@@ -26,16 +36,6 @@ function Header(): JSX.Element {
               <li>
                 <NavLink className="nav__list-item" to="/registration">
                   Регистрация
-                </NavLink>
-              </li>
-            </>
-          )}
-          {user && (
-            <>
-              <li className="hi">Привет, {user.name}</li>
-              <li>
-                <NavLink className="nav__list-item" to="/logout">
-                  Выйти
                 </NavLink>
               </li>
             </>

@@ -35,8 +35,14 @@ export const authorization = async (newUser: User): Promise<User> => {
 };
 
 export const checkUser = async (): Promise<User> => {
-  const res = await fetch('http://localhost:4000/api/users');
-  return res.json();
+  const res = await fetch('http://localhost:4000/api/users', {
+    credentials: 'include',
+  });
+  // console.log(await res.json());
+  const data = await res.json();
+  console.log(data);
+
+  return data;
 };
 
 export const loadTopics = async (): Promise<Topic[]> => {
