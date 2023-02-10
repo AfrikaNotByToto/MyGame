@@ -5,11 +5,8 @@ import './Header.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
-
 function Header(): JSX.Element {
-
   const { user } = useSelector((store: RootState) => store.userState);
-
   return (
     <>
       <div className="nav__container">
@@ -21,8 +18,8 @@ function Header(): JSX.Element {
         <ul className="nav__list">
           {'name' in user ? (
             <>
-            <li>Ваши очечки: {user.points}</li>
-              <li>Привет, {user.name}</li>
+              {/* <li className="hi">Ваши очечки: {}</li> */}
+              <li className="hi">Привет, {user.name}</li>
               <li>
                 <NavLink className="nav__list-item" to="/logout">
                   Выйти
