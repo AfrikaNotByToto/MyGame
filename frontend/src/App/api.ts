@@ -54,3 +54,8 @@ export const loadQuestions = async (): Promise<Question[]> => {
   const res = await fetch('http://localhost:4000/api/game/questions');
   return res.json();
 };
+
+export const addPoints = async(): Promise<User> => {
+  const res = await fetch('http://localhost:4000/api/game');
+  return res.json()
+}

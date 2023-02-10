@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable max-len */
 // @ts-nocheck
-import React, { useState } from 'react';
+import * as api from '../../App/api';
+import React, { useEffect, useState } from 'react';
 import { Question } from './types/Types';
 import './QuestionCard2.scss';
 // eslint-disable-next-line import/no-cycle
@@ -9,21 +10,26 @@ import './QuestionCard2.scss';
 export default function QuestionCard2({ question }:{ question:Question }): JSX.Element {
   const [modal, setModal] = useState(false);
     const [answer, setAnswer] = useState('');
+    const [countScore, setCountScore] = useState(0);
+
     const answeR = `Правильный ответ: ${question.answer}`;
     // const right = 'красавчик';
     const handleclick = (e):void => {
       e.preventDefault();
       if (question.answer === answer) {
-        console.log(question.answer);
-        console.log(answer);
+        setCountScore((prev) => prev + question.price);
         document.querySelector('.hello').innerHTML = question.answer;
         setAnswer('');
       } else {
+        setCountScore((prev) => prev - question.price);
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         document.querySelector('.try').innerHTML = answeR;
         setAnswer('');
       }
     };
+    useEffect(() => {
+     api.addPoints(countScore)
+    }, [countScore])
 
   return (
 
