@@ -32,7 +32,7 @@ function Header(): JSX.Element {
           )}
           {user && (
             <>
-              <li>Привет, {user.name}</li>
+              <li className="hi">Привет, {user.name}</li>
               <li>
                 <NavLink className="nav__list-item" to="/logout">
                   Выйти
