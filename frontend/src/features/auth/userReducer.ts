@@ -24,7 +24,8 @@ export const userReducer = (state: State = init, action: Action): State => {
     case 'CHECK_USER':
       return {
         ...state,
-        user: action.payload.user,
+        user: action.payload,
+        message: action.payload.message,
       };
     default:
       return state;

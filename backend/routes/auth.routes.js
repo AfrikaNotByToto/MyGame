@@ -19,10 +19,12 @@ router.post('/sign-in', async (req, res) => {
         req.session.userId = user.id;
         res.status(201).json(user);
       } else {
-        res.status(403).json({ message: 'Неверный email или пароль' });
+        res
+          .status(403)
+          .json({ message: 'Неверный email или пароль', user: {} });
       }
     } else {
-      res.status(403).json({ message: 'Заполните все поля' });
+      res.status(403).json({ message: 'Заполните все поля', user: {} });
     }
   } catch ({ message }) {
     res.status(500).json(message);
