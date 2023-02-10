@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 const { Question, Topic } = require('../db/models');
 
@@ -37,4 +38,6 @@ router.get('/questions', async (req, res) => {
 //   }
 // });
 
-module.exports = router;
+
+// module.exports = router;
+
