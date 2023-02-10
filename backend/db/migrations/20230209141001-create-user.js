@@ -17,6 +17,7 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       points: {
+        defaultValue: 0,
         type: Sequelize.INTEGER,
       },
       createdAt: {

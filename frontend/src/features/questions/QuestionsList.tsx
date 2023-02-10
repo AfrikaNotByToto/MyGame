@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
@@ -9,9 +10,11 @@ import '../Main/MainPage.scss';
 export default function QuestionsList(): JSX.Element {
   const { topics } = useSelector((store:RootState) => store.topicState);
   const { questions } = useSelector((store:RootState) => store.qsState);
+  // const [score, setScore] = useState(0);
 
   return (
     <div className="main__container">
+
 
         {topics.map((topic) => (
           <>

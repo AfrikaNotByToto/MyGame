@@ -23,10 +23,12 @@ router.get('/questions', async (req, res) => {
 
 router.put('/', async (req, res) => {
   try {
-    const { points } = req.body;
-    const user = User.findOne({ where: { id: req.session.userId } });
-    user.points = points;
-    res.json(user);
+    if (req.session.userId) {
+      const { points } = req.body;
+      const user = User.findOne({ where: { id: req.session.userId } });
+      user.points = points;
+      res.json(user);
+    }
   } catch ({ message }) {
     res.status(500).json(message);
   }
